@@ -19,8 +19,10 @@ increase = 0
 #greatest decrease
 decrease = 0
 
+# prior value
 prior_value = 0
-#establish emtpy lists
+
+#create list to hold differences between rows
 diffs = []
 
 # use csv mod to read the file
@@ -38,15 +40,30 @@ with open(csvpath) as csvfile:
 
         #sum profits
         total_profit +=int(row[1])
+
+        #calc diff between prior row's value and current row's value
         diff = int(row[1]) - prior_value
+
+        # check if greatest increase
         if diff > increase:
+            # if yes, set new greatest increae
             increase = diff
+            # and record date
             inc_date = row[0]
+         # check if greatest decrease
         if diff < decrease:
+            # if yes, set new greatest increae
             decrease = diff
+             # and record date
             dec_date = row[0]
+
+        #add differences between rows to differences' list
         diffs.append(diff)
+
+        # set new prior value
         prior_value = int(row[1])
+    
+    # calc avg, start from second item to omit first row
     average = sum(diffs[1:]) / len(diffs[1:])
 
 # print results
