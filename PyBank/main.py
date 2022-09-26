@@ -74,3 +74,13 @@ print(f"Total: ${total_profit}")
 print(f"Average Change: ${round(average, 2)}")
 print(f"Greatest Increase in Profits: {inc_date} (${increase})")
 print(f"Greatest Decrease in Profits: {dec_date} (${decrease})")
+
+# write to new text file
+with open('Financial_Analysis.txt', 'w') as f:
+    f.write("Financial Analysis\n")
+    f.write("-------------------------\n")
+    f.write(f"Total Months: {month_count}\n")
+    f.write(f"Total: ${total_profit}\n")    
+    f.write(f"Average Change: ${round(average, 2)}\n")
+    f.write(f"Greatest Increase in Profits: {inc_date} (${increase})\n")
+    f.write(f"Greatest Decrease in Profits: {dec_date} (${decrease})\n")
