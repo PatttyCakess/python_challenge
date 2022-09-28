@@ -13,6 +13,7 @@ csvpath = os.path.join('Resources','election_data.csv')
 candidates = []
 pct_vote = []
 count = []
+winner = ""
 
 # iterate through the list to get total vote count and all candidates
 with open(csvpath) as csvfile:
@@ -65,16 +66,16 @@ for i in count:
         winner = candidates[count.index(i)]
 
 # print results
-print("Election Results")
-print("-------------------------")
-print(f"Total Votes: {voter_count}")
-print("-------------------------")
+print(f"""Election Results
+-------------------------
+Total Votes: {voter_count}
+-------------------------""")
 # loop through the candidates list and prints their relative index
 for candidate in candidates:
     print(f"{candidate}: {round((pct_vote[candidates.index(candidate)])*100,3)}% ({count[candidates.index(candidate)]})")
-print("-------------------------")
-print(f"Winner: {winner}")    
-print("-------------------------")
+print(f"""-------------------------
+Winner: {winner}
+-------------------------""")
 
 # write txt file - use \n to write to a new line
 with open('Election_Results.txt', 'w') as election_results:

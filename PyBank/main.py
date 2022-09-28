@@ -67,13 +67,13 @@ with open(csvpath) as csvfile:
     average = sum(diffs[1:]) / len(diffs[1:])
 
 # print results
-print("Financial Analysis")
-print("----------------------------")
-print(f"Total Months: {month_count}")
-print(f"Total: ${total_profit}")
-print(f"Average Change: ${round(average, 2)}")
-print(f"Greatest Increase in Profits: {inc_date} (${increase})")
-print(f"Greatest Decrease in Profits: {dec_date} (${decrease})")
+print(f"""Financial Analysis
+----------------------------
+Total Months: {month_count}
+Total: ${total_profit}
+Average Change: ${round(average, 2)}
+Greatest Increase in Profits: {inc_date} (${increase})
+Greatest Decrease in Profits: {dec_date} (${decrease})""")
 
 # write to new text file
 with open('Financial_Analysis.txt', 'w') as f:
